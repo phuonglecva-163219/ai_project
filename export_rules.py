@@ -7,7 +7,7 @@ with open("comments.json","r", encoding="utf-8") as input:
 def getTelephoneByKey(key, data):
     return [ telephone[key] for (id, telephone) in enumerate(data)]
 
-variables = ["ram", "rom", "screen", "main_camera", "extra_camera", "batery", "price"]
+variables = ["ram", "rom", "screen", "main_camera", "extra_camera", "battery", "price"]
 
 rules = [
 # RAM=========================
@@ -174,11 +174,11 @@ rules = [
       },
   ],
 },
-# batery ==================================================
+# battery ==================================================
 
 # if main_camera < 5
 { "conditions": { "all": [
-      { "name": "batery",
+      { "name": "battery",
         "operator": constant.LESS_THAN,
         "value": 3005,
       },
@@ -190,11 +190,11 @@ rules = [
   ],
 },
 { "conditions": { "all": [
-      { "name": "batery",
+      { "name": "battery",
         "operator": constant.GREATER_THAN,
         "value": 3005,
       },
-      { "name": "batery",
+      { "name": "battery",
         "operator": constant.LESS_THAN,
         "value": 4005,
       },
@@ -208,7 +208,7 @@ rules = [
 
 # if main_camera > 10
 { "conditions": { "all": [
-      { "name": "batery",
+      { "name": "battery",
         "operator": constant.GREATER_THAN,
         "value": 4005,
       },
@@ -374,8 +374,8 @@ for (id, camera) in enumerate(cameras):
 main_camera = [camera[0] for camera in result]
 extra_camera = [camera[1] for camera in result]
 
-bateries = getTelephoneByKey("pin", telephones)
-bateries = [int(bate.strip().split(" ")[0]) for bate in bateries]
+batteries = getTelephoneByKey("pin", telephones)
+batteries = [int(bate.strip().split(" ")[0]) for bate in batteries]
 prices = getTelephoneByKey("price", telephones)
 
 roms = getTelephoneByKey("rom", telephones)
@@ -395,7 +395,7 @@ list_variable_data = {
    "screen":screens_new, 
    "main_camera":main_camera, 
    "extra_camera":extra_camera, 
-   "batery":bateries, 
+   "battery":batteries, 
    "price":prices,
    "rom":roms
 }

@@ -16,7 +16,7 @@ except IOError:
     print("Unable to load image")
     sys.exit(1)
 
-input_condition = "batery {} {}".format(constant.LESS_THAN, 3005)
+input_condition = "battery {} {}".format(constant.LESS_THAN, 3005)
 input_condition = {
     "name": input_condition.split(" ")[0],
     "operator": input_condition.split(" ")[1],

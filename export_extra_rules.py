@@ -17,7 +17,7 @@ rules = [
         {"name": "screen",
          "params": {"values": [5], "operator":constant.LESS_THAN},
          },
-        {"name": "batery",
+        {"name": "battery",
          "params": {"values": [3005], "operator":constant.LESS_THAN},
          },
     ],
@@ -36,7 +36,7 @@ rules = [
         {"name": "screen",
          "params": {"values": [5, 10]},
          },
-        {"name": "batery",
+        {"name": "battery",
          "params": {"values": [3005, 4005]},
          }
     ],

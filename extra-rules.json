@@ -15,7 +15,7 @@
         "operator": "less_than"
       },
       {
-        "name": "batery",
+        "name": "battery",
         "params": { "values": [3005] },
         "operator": "less_than"
       }
@@ -28,7 +28,7 @@
     "actions": [
       { "name": "ram", "params": { "values": [5, 10] } },
       { "name": "screen", "params": { "values": [5, 10] } },
-      { "name": "batery", "params": { "values": [3005, 4005] } }
+      { "name": "battery", "params": { "values": [3005, 4005] } }
     ]
   },
   {
@@ -47,7 +47,7 @@
         "operator": "greater_than"
       },
       {
-        "name": "batery",
+        "name": "battery",
         "params": { "values": [4005] },
         "operator": "greater_than"
       }

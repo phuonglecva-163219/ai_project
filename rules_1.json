@@ -1004,7 +1004,7 @@
     "conditions": {
       "all": [
         {
-          "name": "batery",
+          "name": "battery",
           "operator": "less_than",
           "value": 3005
         }
@@ -1047,12 +1047,12 @@
     "conditions": {
       "all": [
         {
-          "name": "batery",
+          "name": "battery",
           "operator": "greater_than",
           "value": 3005
         },
         {
-          "name": "batery",
+          "name": "battery",
           "operator": "less_than",
           "value": 4005
         }
@@ -1125,7 +1125,7 @@
     "conditions": {
       "all": [
         {
-          "name": "batery",
+          "name": "battery",
           "operator": "greater_than",
           "value": 4005
         }
