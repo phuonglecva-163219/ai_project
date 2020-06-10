@@ -57,11 +57,11 @@ rules = [
 
 # Screen ==================================================
 
-# if screen < 5
+# if screen < 5.01
 { "conditions": { "all": [
       { "name": "screen",
         "operator": constant.LESS_THAN,
-        "value": 5,
+        "value": 5.01,
       },
   ]},
   "actions": [
@@ -70,15 +70,15 @@ rules = [
       },
   ],
 },
-# if screen > 5 and screen < 10
+# if screen > 5.01 and screen < 6.51
 { "conditions": { "all": [
       { "name": "screen",
         "operator": constant.GREATER_THAN,
-        "value": 5,
+        "value": 5.01,
       },
       { "name": "screen",
         "operator": constant.LESS_THAN,
-        "value": 10,
+        "value": 6.51,
       },
   ]},
   "actions": [
@@ -87,11 +87,11 @@ rules = [
       },
   ],
 },
-# if screen > 10
+# if screen > 6.51
 { "conditions": { "all": [
       { "name": "screen",
         "operator": constant.GREATER_THAN,
-        "value": 10,
+        "value": 6.51,
       },
   ]},
   "actions": [
@@ -102,7 +102,7 @@ rules = [
 },
 # main_camera ==================================================
 
-# if main_camera < 5
+# if main_camera < 40.5
 { "conditions": { "all": [
       { "name": "main_camera",
         "operator": constant.LESS_THAN,
@@ -115,7 +115,7 @@ rules = [
       },
   ],
 },
-# if main_camera > 5 and main_camera < 10
+# if main_camera > 40.5 and main_camera < 80
 { "conditions": { "all": [
       { "name": "main_camera",
         "operator": constant.GREATER_THAN,
@@ -132,7 +132,7 @@ rules = [
       },
   ],
 },
-# if main_camera > 10
+# if main_camera > 80
 { "conditions": { "all": [
       { "name": "main_camera",
         "operator": constant.GREATER_THAN,
@@ -147,7 +147,7 @@ rules = [
 },
 # extra_camera ==================================================
 
-# if main_camera < 5
+# if extra_camera < 30
 { "conditions": { "all": [
       { "name": "extra_camera",
         "operator": constant.LESS_THAN,
@@ -161,7 +161,7 @@ rules = [
   ],
 },
 
-# if main_camera > 10
+# if extra_camera > 30
 { "conditions": { "all": [
       { "name": "extra_camera",
         "operator": constant.GREATER_THAN,
@@ -176,7 +176,7 @@ rules = [
 },
 # battery ==================================================
 
-# if main_camera < 5
+# if battery < 3005
 { "conditions": { "all": [
       { "name": "battery",
         "operator": constant.LESS_THAN,
@@ -189,6 +189,7 @@ rules = [
       },
   ],
 },
+# if battery > 3005 and < 4005
 { "conditions": { "all": [
       { "name": "battery",
         "operator": constant.GREATER_THAN,
@@ -206,7 +207,7 @@ rules = [
   ],
 },
 
-# if main_camera > 10
+# if battery > 4005
 { "conditions": { "all": [
       { "name": "battery",
         "operator": constant.GREATER_THAN,
@@ -221,7 +222,7 @@ rules = [
 },
 # price ==================================================
 
-# if main_camera < 5
+# if price < 10.1m
 { "conditions": { "all": [
       { "name": "price",
         "operator": constant.LESS_THAN,
@@ -234,6 +235,7 @@ rules = [
       },
   ],
 },
+# if price > 10.1m and < 20.1m
 { "conditions": { "all": [
       { "name": "price",
         "operator": constant.GREATER_THAN,
@@ -250,6 +252,7 @@ rules = [
       },
   ],
 },
+# if price > 20.1m and < 30.1m
 { "conditions": { "all": [
       { "name": "price",
         "operator": constant.GREATER_THAN,
@@ -267,7 +270,7 @@ rules = [
   ],
 },
 
-# if main_camera > 10
+# if price > 30.1m
 { "conditions": { "all": [
       { "name": "price",
         "operator": constant.GREATER_THAN,
@@ -281,7 +284,7 @@ rules = [
   ],
 },
 # ROM condition:
-# if main_camera < 5
+# if rom < 32.1
 { "conditions": { "all": [
       { "name": "rom",
         "operator": constant.LESS_THAN,
@@ -294,6 +297,8 @@ rules = [
       },
   ],
 },
+
+# if 32.1 < rom < 64.1
 { "conditions": { "all": [
       { "name": "rom",
         "operator": constant.GREATER_THAN,
@@ -311,7 +316,7 @@ rules = [
   ],
 },
 
-# if main_camera > 10
+# if rom > 64.1
 { "conditions": { "all": [
       { "name": "rom",
         "operator": constant.GREATER_THAN,
@@ -430,5 +435,5 @@ for variable in variables:
 
 print(new_rules)
 
-with open("rules_1.json", "w") as output:
+with open("rules_2.json", "w") as output:
     output.write(json.dumps(new_rules, indent=2))

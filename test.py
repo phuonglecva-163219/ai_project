@@ -1,47 +1,13 @@
 import json
-from urllib.error import HTTPError
-from urllib.request import urlretrieve
-
-
+# \# d = [[1,2,3,4], [2,3,4], [3,4,5,6,7]]
+d = [[1, 8, 11, 12, 15, 16, 17, 18, 19, 20, 22, 23, 25, 26, 27, 32, 41, 42, 43, 44, 46, 50, 52, 56, 57, 58, 59, 62, 63, 67, 73, 75, 76, 77, 78, 85, 87, 88, 89, 90, 92, 95, 100, 109, 110, 119, 127, 128, 129, 130, 134, 135, 140], [0, 2, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 37, 39, 41, 42, 43, 44, 45, 46, 50, 52, 53, 56, 57, 58, 61, 62, 63, 65, 66, 67, 68, 69, 72, 73, 74, 78, 80, 83, 84, 87, 88, 90,
+                                                                                                                                                                                                                                     91, 92, 94, 95, 96, 97, 98, 102, 104, 105, 106, 109, 110, 111, 112, 113, 114, 115, 116, 117, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135,
+                                                                                                                                                                                                                                     138, 139, 140], [4, 5, 7, 8, 9, 10, 13, 21, 33, 34, 45, 46, 47, 48, 49, 50, 54, 55, 58, 59, 66, 74, 75, 83, 84, 85, 86, 90, 93, 94, 98, 100, 103, 107, 109, 110, 111, 116, 117, 118, 119, 120, 121, 122, 127, 128, 129]]
+a = set.intersection(*[set(x) for x in d])
+print(a)
 with open("comments.json", "r", encoding="utf-8") as input:
-    data = json.load(input)
+    telephones = json.load(input)
 
-# list_item = []
-# for (id, telephone) in enumerate(data):
-#     item = telephone
-#     item["id"] = id
-#     list_item.append(item)
-# print(list_item)
-# for telep in data:
-#     print(telep)
-# print(len(data))
-
-# load images
-try:
-    for (index, telephone) in enumerate(data):
-        image_url = telephone['img']
-        image_local_path = "images_1/{}.jpg".format(index)
-        urlretrieve(image_url, image_local_path)
-except FileNotFoundError as err:
-    print(err)   # something wrong with local path
-except HTTPError as err:
-    print(err)  # something wrong with url
-
-# # index = 1
-# file_out = []
-
-# for index, telephone in enumerate(data):
-#     file_out.append({
-#         "id": index,
-#         "name": telephone['name'],
-#         "price": telephone['price'],
-#         "img": telephone['img'],
-#         "screen": telephone['screen'],
-#         "cpu": telephone['cpu'],
-#         "ram": telephone['ram'],
-#         "camera": telephone['camera'],
-#         "selfie": telephone['selfie'],
-#         "pin": telephone['pin']
-#     })
-# with open("sample.json", "w", encoding="utf-8") as output:
-#     output.write(json.dumps(file_out, indent=2))
+listTele = [telephone for (index, telephone)
+            in enumerate(telephones) if index in a]
+print(listTele)
