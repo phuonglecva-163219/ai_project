@@ -61,7 +61,7 @@ rules = [
 { "conditions": { "all": [
       { "name": "screen",
         "operator": constant.LESS_THAN,
-        "value": 5,
+        "value": 5.01,
       },
   ]},
   "actions": [
@@ -74,11 +74,11 @@ rules = [
 { "conditions": { "all": [
       { "name": "screen",
         "operator": constant.GREATER_THAN,
-        "value": 5,
+        "value": 5.01,
       },
       { "name": "screen",
         "operator": constant.LESS_THAN,
-        "value": 10,
+        "value": 6.51,
       },
   ]},
   "actions": [
@@ -91,7 +91,7 @@ rules = [
 { "conditions": { "all": [
       { "name": "screen",
         "operator": constant.GREATER_THAN,
-        "value": 10,
+        "value": 6.51,
       },
   ]},
   "actions": [
@@ -430,5 +430,5 @@ for variable in variables:
 
 print(new_rules)
 
-with open("rules_1.json", "w") as output:
+with open("rules_2.json", "w") as output:
     output.write(json.dumps(new_rules, indent=2))

@@ -3,6 +3,7 @@ GREATER_THAN = 'greater_than'
 LESS_THAN = 'less_than'
 GREATER_THAN_OR_EQUAL_TO = 'greater_than_or_equal_to'
 LESS_THAN_OR_EQUAL_TO = 'less_than_or_equal_to'
+BETWEEN = "between"
 
 EQUAL_TO  = 'equal_to'
 STARTS_WITH = 'starts_with'

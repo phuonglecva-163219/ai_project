@@ -1,54 +1,123 @@
 [
   {
     "conditions": {
-      "all": [{ "name": "game", "operator": "bad", "value": "" }]
+      "all": [
+        {
+          "name": "game",
+          "operator": "bad",
+          "value": ""
+        }
+      ]
     },
     "actions": [
       {
         "name": "ram",
-        "params": { "values": [5] },
-        "operator": "less_than"
+        "params": {
+          "values": [
+            5
+          ],
+          "operator": "less_than"
+        }
       },
       {
         "name": "screen",
-        "params": { "values": [5] },
-        "operator": "less_than"
+        "params": {
+          "values": [
+            5.01
+          ],
+          "operator": "less_than"
+        }
       },
       {
         "name": "batery",
-        "params": { "values": [3005] },
-        "operator": "less_than"
+        "params": {
+          "values": [
+            3005
+          ],
+          "operator": "less_than"
+        }
       }
     ]
   },
   {
     "conditions": {
-      "all": [{ "name": "game", "operator": "medium", "value": "" }]
-    },
-    "actions": [
-      { "name": "ram", "params": { "values": [5, 10] } },
-      { "name": "screen", "params": { "values": [5, 10] } },
-      { "name": "batery", "params": { "values": [3005, 4005] } }
-    ]
-  },
-  {
-    "conditions": {
-      "all": [{ "name": "game", "operator": "good", "value": "" }]
+      "all": [
+        {
+          "name": "game",
+          "operator": "medium",
+          "value": ""
+        }
+      ]
     },
     "actions": [
       {
         "name": "ram",
-        "params": { "values": [10] },
+        "params": {
+          "values": [
+            5,
+            10
+          ]
+        },
+        "operator": "between"
+      },
+      {
+        "name": "screen",
+        "params": {
+          "values": [
+            5.01,
+            6.51
+          ]
+        },
+        "operator": "between"
+      },
+      {
+        "name": "batery",
+        "params": {
+          "values": [
+            3005,
+            4005
+          ]
+        },
+        "operator": "between"
+      }
+    ]
+  },
+  {
+    "conditions": {
+      "all": [
+        {
+          "name": "game",
+          "operator": "good",
+          "value": ""
+        }
+      ]
+    },
+    "actions": [
+      {
+        "name": "ram",
+        "params": {
+          "values": [
+            10
+          ]
+        },
         "operator": "greater_than"
       },
       {
         "name": "screen",
-        "params": { "values": [10] },
+        "params": {
+          "values": [
+            6.51
+          ]
+        },
         "operator": "greater_than"
       },
       {
-        "name": "batery",
-        "params": { "values": [4005] },
+        "name": "pin",
+        "params": {
+          "values": [
+            4005
+          ]
+        },
         "operator": "greater_than"
       }
     ]
