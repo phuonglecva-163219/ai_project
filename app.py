@@ -2,6 +2,7 @@ import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import constant, inference_engine
+import urllib.request
 
 qtCreatorFile1 = "homepage.ui" # Enter file here.
 qtCreatorFile2 = "phone.ui" # Enter file here.
@@ -87,13 +88,13 @@ class Result(QtWidgets.QWidget):
 
         global listId
         for i in listId:
-            self.listwidget.addItem(inference_engine.getData(i)["name"])
+            self.listwidget.insertItem(i, inference_engine.getData(i)["name"])
         self.listwidget.clicked.connect(self.clicked)
         layout.addWidget(self.listwidget)
 
     def clicked(self, qmodelindex):
-        item = self.listwidget.currentItem()
-        print(item)
+        global item
+        item = self.listwidget.currentRow()
         self.main = Phone()
         self.main.move(900, 100)
         self.main.show()
@@ -104,8 +105,21 @@ class Phone(QtWidgets.QMainWindow, Ui_MainWindow2):
         Ui_MainWindow2.__init__(self)
         self.setupUi(self)
 
-        global item
-
+        global listId, item
+        phoneId = listId[item]
+        img = QtGui.QImage()
+        img_data = urllib.request.urlopen(inference_engine.getData(phoneId)["img"]).read()
+        img.loadFromData(img_data)
+        self.img.setPixmap(QtGui.QPixmap(img))
+        self.name.setText(inference_engine.getData(phoneId)["name"])
+        self.ram.setText(inference_engine.getData(phoneId)["ram"])
+        self.rom.setText(inference_engine.getData(phoneId)["rom"])
+        self.screen.setText(inference_engine.getData(phoneId)["screen"])
+        self.cpu.setText(inference_engine.getData(phoneId)["cpu"])
+        self.mcam.setText(inference_engine.getData(phoneId)["camera"])
+        self.excam.setText(inference_engine.getData(phoneId)["selfie"])
+        self.bat.setText(inference_engine.getData(phoneId)["pin"])
+        self.price.setText(inference_engine.getData(phoneId)["price"])
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

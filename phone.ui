@@ -37,7 +37,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string>ROM</string>
@@ -66,7 +66,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string>Screen</string>
@@ -95,7 +95,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string>Camera</string>
@@ -125,7 +125,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string/>
@@ -155,7 +155,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string/>
@@ -185,7 +185,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string/>
@@ -195,6 +195,9 @@
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -214,7 +217,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string>RAM</string>
@@ -244,7 +247,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string/>
@@ -277,7 +280,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string/>
@@ -307,7 +310,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string/>
@@ -316,7 +319,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="avatar">
+   <widget class="QLabel" name="img">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -358,7 +361,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string>CPU</string>
@@ -388,7 +391,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string/>
@@ -417,7 +420,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string>Selfie</string>
@@ -447,7 +450,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string/>
@@ -476,7 +479,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string>Battery</string>
@@ -505,7 +508,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string>Price</string>
@@ -535,7 +538,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
     </property>
     <property name="text">
      <string/>
