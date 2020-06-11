@@ -6,7 +6,7 @@ import numpy as np
 from collections import deque
 # input = "{} {} {}"
 #  run(input) return listImageId. /images_1/id.jpg
-# 
+#
 import sys
 # with open("rules_2.json", "r") as input_rule:
 #     root = json.load(input_rule)
@@ -147,11 +147,11 @@ def tranform2conditions(conditionStr):
 conditionInput = "game good "
 conditions = tranform2conditions(conditionInput)
 # print(conditions)
-listCondition = [{
-    "name": "game",
-    "operator": constant.GOOD,
-    "value": "",
-}]
+# listCondition = [{
+#     "name": "game",
+#     "operator": constant.GOOD,
+#     "value": "",
+# }]
 # print(root)
 
 # print(findRulesFromCondition(conditions,root))
@@ -190,9 +190,34 @@ def run(init_condition):
     list_inter = set.intersection(*[set(x) for x in result])
     return list(list_inter)
 
-# listId = run("ram {} {}".format(
-#     constant.LESS_THAN,
-#     5
-# ))
+
+listId = run("ram {} {}".format(
+    constant.LESS_THAN,
+    5
+))
 # listImage = [tele for (index, tele) in enumerate(facts) if index in listId]
 # print(listImage)
+
+
+def runAll(listCondition):
+    listResult = []
+    for condition in listCondition:
+        listResult.append(
+            run(condition)
+        )
+    list_inter = set.intersection(*[set(x) for x in listResult])
+    return list(list_inter)
+
+
+# conditions = ["ram {} {}".format(
+#     constant.LESS_THAN, 5), "rom {} {}".format(constant.GREATER_THAN, 64.1)]
+# print(listImg)
+
+# condition = ["ram {} {}".format(constant.LESS_THAN, 5)]
+# listImg = runAll(condition)
+# print(listImg)
+
+def getData(index):
+    with open("data.json", "r", encoding="utf-8") as input_fact:
+        facts = json.load(input_fact)
+    return facts[index]

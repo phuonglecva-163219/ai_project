@@ -3,8 +3,10 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import constant, inference_engine
 
-qtCreatorFile = "homepage.ui" # Enter file here.
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
+qtCreatorFile1 = "homepage.ui" # Enter file here.
+qtCreatorFile2 = "phone.ui" # Enter file here.
+Ui_MainWindow1, QtBaseClass1 = uic.loadUiType(qtCreatorFile1)
+Ui_MainWindow2, QtBaseClass2 = uic.loadUiType(qtCreatorFile2)
 
 ram_cond = ["", "{} {} {}".format("ram", constant.LESS_THAN, 5),
                 "{} {} {} {} {}".format("ram", constant.GREATER_THAN, 5, constant.LESS_THAN, 10),
@@ -28,15 +30,22 @@ price_cond = ["", "{} {} {}".format("price", constant.LESS_THAN, 10.1),
                 "{} {} {} {} {}".format("price", constant.GREATER_THAN, 20.1, constant.LESS_THAN, 30.1),
                 "{} {} {}".format("price", constant.GREATER_THAN, 30.1)]
 
-class Homepage(QtWidgets.QMainWindow, Ui_MainWindow):
+class Homepage(QtWidgets.QMainWindow, Ui_MainWindow1):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
-        Ui_MainWindow.__init__(self)
+        Ui_MainWindow1.__init__(self)
         self.setupUi(self)
-        self.result.clicked.connect(self.get_params)
+        self.center()
+        self.result.clicked.connect(self.find)
         self.show()
 
-    def get_params(self):
+    def center(self):
+        frameGm = self.frameGeometry()
+        centerPoint = QtWidgets.QDesktopWidget().availableGeometry().center()
+        frameGm.moveCenter(centerPoint)
+        self.move(frameGm.topLeft())
+
+    def find(self):
         ram = self.ram.currentIndex()
         rom = self.rom.currentIndex()
         screen = self.screen.currentIndex()
@@ -46,15 +55,57 @@ class Homepage(QtWidgets.QMainWindow, Ui_MainWindow):
         price = self.price.currentIndex()
 
         params = [ram, rom, screen, mcam, excam, bat, price]
-        # for param in params:
-        #     if param == 0:
-        #         print(itemID for itemID in inference_engine(ram_cond[1]) if
-        #             itemID in inference_engine(rom_cond[1]))
-        # print(inference_engine(rom_cond[1]))  
-        if ram == 1:
-            init_condition = ram_cond[1]
-            listID_ram = inference_engine.run(init_condition)
-            print(listID)
+        if params == [0, 0, 0, 0, 0, 0, 0]:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle("Error")
+            msg.setText("Please select at least 1 category!")
+            x = msg.exec_()
+        else:
+            listCond = [ram_cond[ram], 
+                        rom_cond[rom], 
+                        screen_cond[screen],
+                        mcam_cond[mcam],
+                        excam_cond[excam],
+                        bat_cond[bat],
+                        price_cond[price]]
+            listCond = [condition for condition in listCond if condition != ""]
+
+            global listId
+            listId = inference_engine.runAll(listCond)
+            self.main = Result()
+            self.main.show()
+
+
+class Result(QtWidgets.QWidget):
+    def __init__(self):
+        QtWidgets.QWidget.__init__(self)
+        layout = QtWidgets.QGridLayout()
+        self.setLayout(layout)
+        self.setGeometry(200, 100, 400, 600)
+        self.setWindowTitle("Result")
+        self.listwidget = QtWidgets.QListWidget()
+
+        global listId
+        for i in listId:
+            self.listwidget.addItem(inference_engine.getData(i)["name"])
+        self.listwidget.clicked.connect(self.clicked)
+        layout.addWidget(self.listwidget)
+
+    def clicked(self, qmodelindex):
+        item = self.listwidget.currentItem()
+        print(item)
+        self.main = Phone()
+        self.main.move(900, 100)
+        self.main.show()
+
+class Phone(QtWidgets.QMainWindow, Ui_MainWindow2):
+    def __init__(self):
+        QtWidgets.QMainWindow.__init__(self)
+        Ui_MainWindow2.__init__(self)
+        self.setupUi(self)
+
+        global item
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
