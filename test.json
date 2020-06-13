@@ -1605,5 +1605,105 @@
         "operator": "between"
       }
     ]
+  },
+  {
+    "conditions": {
+      "all": [
+        {
+          "name": "business",
+          "operator": "good",
+          "value": ""
+        }
+      ]
+    },
+    "actions": [
+      {
+        "name": "ram",
+        "params": {
+          "values": [
+            10
+          ]
+        },
+        "operator": "greater_than"
+      },
+      {
+        "name": "price",
+        "params": {
+          "values": [
+            30.1
+          ]
+        },
+        "operator": "greater_than"
+      },   
+      {
+        "name": "rom",
+        "params": {
+          "values": [
+            64.1
+          ]
+        },
+        "operator": "greater_than"
+      }
+    ]
+  },
+
+  {
+    "conditions": {
+      "all": [
+        {
+          "name": "entertainment",
+          "operator": "good",
+          "value": ""
+        }
+      ]
+    },
+    "actions": [
+      {
+        "name": "game",
+        "params": {
+          "values": [""]
+        },
+        "operator": "good"
+      },
+      {
+        "name": "main_camera",
+        "params": {
+          "values": [
+            40.5, 80
+          ]
+        },
+        "operator": "between"
+      }
+    ]
+  },
+
+  {
+    "conditions": {
+      "all": [
+        {
+          "name": "entertainment",
+          "operator": "medium",
+          "value": ""
+        }
+      ]
+    },
+    "actions": [
+      {
+        "name": "game",
+        "params": {
+          "values": [""]
+        },
+        "operator": "medium"
+      },
+      {
+        "name": "main_camera",
+        "params": {
+          "values": [
+            40.5
+          ]
+        },
+        "operator": "less_than"
+      }
+    ]
   }
 ]

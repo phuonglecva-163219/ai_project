@@ -162,39 +162,40 @@ def run(init_condition):
     start_condition = tranform2conditions(init_condition)
     start_rule = findRulesFromCondition(start_condition, root)
     stack.append(start_rule)
+    # print(stack)
     result = []
     while len(stack) > 0:
         currRule = stack.pop()
         currActions = getListActions(currRule)
-        # currActions = currRule.get("actions")
-        if len(currActions) > 1:
-            for action in currActions:
-                if action.get("operator") == constant.BETWEEN:
-                    cond = tranform2conditions("{} {} {} {} {}".format(
-                        action.get("name"),
-                        constant.GREATER_THAN,
-                        action.get("params").get("values")[0],
-                        constant.LESS_THAN,
-                        action.get("params").get("values")[1]
-                    ))
-                    stack.append(findRulesFromCondition(cond, root))
-                else:
-                    cond = tranform2conditions("{} {} {}".format(
-                        action.get("name"),
-                        action.get("operator"),
-                        action.get("params").get("values")[0]
-                    ))
-                    stack.append(findRulesFromCondition(cond, root))
-        elif currActions[0].get("name") == "export_telephones":
-            result.append(currActions[0].get("params").get("ids"))
+        for action in currActions:
+            if action.get("name") == "export_telephones":
+                result.append(action.get("params").get("ids"))
+                continue
+            if action.get("operator") == constant.BETWEEN:
+                cond = tranform2conditions("{} {} {} {} {}".format(
+                    action.get("name"),
+                    constant.GREATER_THAN,
+                    action.get("params").get("values")[0],
+                    constant.LESS_THAN,
+                    action.get("params").get("values")[1]
+                ))
+                stack.append(findRulesFromCondition(cond, root))
+            else:
+                cond = tranform2conditions("{} {} {}".format(
+                    action.get("name"),
+                    action.get("operator"),
+                    action.get("params").get("values")[0]
+                ))
+                stack.append(findRulesFromCondition(cond, root))
+    # print(result)
     list_inter = set.intersection(*[set(x) for x in result])
     return list(list_inter)
 
 
-listId = run("ram {} {}".format(
-    constant.LESS_THAN,
-    5
-))
+# listId = run("ram {} {}".format(
+#     constant.LESS_THAN,
+#     5
+# ))
 # listImage = [tele for (index, tele) in enumerate(facts) if index in listId]
 # print(listImage)
 
@@ -222,6 +223,6 @@ def getData(index):
         facts = json.load(input_fact)
     return facts[index]
 
-listCondition = ["game good "]
-listId = runAll(listCondition)
-print(listId)
+# listCondition = ["entertainment good "]
+# listId = runAll(listCondition)
+# print(listId)

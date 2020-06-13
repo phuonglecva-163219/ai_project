@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Phone Advice</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(186, 189, 182);</string>
@@ -81,10 +81,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>Student</string>
+     <string>Target</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="student">
+   <widget class="QComboBox" name="target">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -124,12 +124,12 @@
     </item>
     <item>
      <property name="text">
-      <string>Bad</string>
+      <string>Student</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Good</string>
+      <string>Business</string>
      </property>
     </item>
    </widget>
@@ -162,6 +162,22 @@
      <string>Game</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="level3">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(124, 225, 5);</string>
+    </property>
+    <property name="text">
+     <string>Level 3</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="level1">
     <property name="geometry">
      <rect>
@@ -172,10 +188,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(124, 225, 5);</string>
+     <string notr="true">background-color: rgb(115, 210, 22);</string>
     </property>
     <property name="text">
-     <string>DOWN</string>
+     <string>Level 1</string>
     </property>
    </widget>
   </widget>
