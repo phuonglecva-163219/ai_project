@@ -35,6 +35,8 @@ price_cond = ["", "{} {} {}".format("price", constant.LESS_THAN, 10.1),
 game_cond = ["", "{} {} {}".format("game", constant.BAD, ""),
                 "{} {} {}".format("game", constant.MEDIUM, ""),
                 "{} {} {}".format("game", constant.GOOD, "")]
+student_cond = ["", "{} {} {}".format("game", constant.BAD, ""),
+                "{} {} {}".format("game", constant.GOOD, "")]
 
 class Homepage(QtWidgets.QMainWindow, Ui_MainWindow1):
     def __init__(self):
@@ -119,7 +121,8 @@ class Level2(QtWidgets.QMainWindow, Ui_MainWindow3):
             msg.setText("Please select at least 1 category!")
             x = msg.exec_()
         else:
-            listCond = [game_cond[game]]
+            listCond = [game_cond[game],
+                        student_cond[student]]
             listCond = [condition for condition in listCond if condition != ""]
 
             global listId

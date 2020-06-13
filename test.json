@@ -1563,5 +1563,47 @@
         "operator": "greater_than"
       }
     ]
+  },
+  {
+    "conditions": {
+      "all": [
+        {
+          "name": "student",
+          "operator": "good",
+          "value": ""
+        }
+      ]
+    },
+    "actions": [
+      {
+        "name": "ram",
+        "params": {
+          "values": [
+            5,
+            10
+          ]
+        },
+        "operator": "between"
+      },
+      {
+        "name": "price",
+        "params": {
+          "values": [
+            10.1
+          ]
+        },
+        "operator": "less_than"
+      },
+      {
+        "name": "rom",
+        "params": {
+          "values": [
+            32.1,
+            64.1
+          ]
+        },
+        "operator": "between"
+      }
+    ]
   }
 ]

@@ -14,7 +14,7 @@ import sys
 #     extra_rules = json.load(extra_input)
 with open("data.json", "r", encoding="utf-8") as input_fact:
     facts = json.load(input_fact)
-with open("test2.json", "r") as rule_input:
+with open("test.json", "r") as rule_input:
     root = json.load(rule_input)
 # for rule in extra_rules:
 #     root.append(rule)

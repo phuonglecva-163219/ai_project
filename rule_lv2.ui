@@ -81,7 +81,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Study</string>
+     <string>Student</string>
     </property>
    </widget>
    <widget class="QComboBox" name="student">
@@ -120,6 +120,11 @@
     <item>
      <property name="text">
       <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Bad</string>
      </property>
     </item>
     <item>

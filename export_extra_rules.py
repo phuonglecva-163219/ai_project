@@ -82,9 +82,10 @@ rules = [
          }
     ],
     },
+    
 ]
-with open("extra-rules.json", "w") as out:
-    out.write(json.dumps(rules, indent=2))
+# with open("extra-rules.json", "w") as out:
+#     out.write(json.dumps(rules, indent=2))
 
 
 # def findRulesFromCondition(condition, rules):
