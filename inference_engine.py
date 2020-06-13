@@ -221,3 +221,13 @@ def getData(index):
     with open("data.json", "r", encoding="utf-8") as input_fact:
         facts = json.load(input_fact)
     return facts[index]
+
+# condi = tranform2conditions(condition)
+# rule = findRulesFromCondition(condi, root)
+# print(condi)
+# print(rule)
+# start_ru = findRulesFromCondition(condi)
+# print(condi)
+# print(start_ru)
+# reslut = runAll(condition)
+# print(reslut)

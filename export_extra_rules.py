@@ -72,13 +72,13 @@ rules = [
     ]},
         "actions": [
         {"name": "ram",
-         "params": {"values": [5 10]}, "operator":constant.BETWEEN
+         "params": {"values": [5, 10]}, "operator":constant.BETWEEN
          },
         {"name": "price",
          "params": {"values": [10.1]}, "operator":constant.LESS_THAN
          },
         {"name": "rom",
-         "params": {"values": [32.1 64.1]}, "operator":constant.BETWEEN
+         "params": {"values": [32.1, 64.1]}, "operator":constant.BETWEEN
          }
     ],
     },

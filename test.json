@@ -1457,27 +1457,27 @@
         "params": {
           "values": [
             5
-          ],
-          "operator": "less_than"
-        }
+          ]
+        },
+        "operator": "less_than"
       },
       {
         "name": "screen",
         "params": {
           "values": [
             5.01
-          ],
-          "operator": "less_than"
-        }
+          ]
+        },
+        "operator": "less_than"
       },
       {
         "name": "battery",
         "params": {
           "values": [
             3005
-          ],
-          "operator": "less_than"
-        }
+          ]
+        },
+        "operator": "less_than"
       }
     ]
   },
@@ -1554,7 +1554,7 @@
         "operator": "greater_than"
       },
       {
-        "name": "pin",
+        "name": "battery",
         "params": {
           "values": [
             4005

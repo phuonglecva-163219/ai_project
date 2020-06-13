@@ -6,8 +6,10 @@ import urllib.request
 
 qtCreatorFile1 = "homepage.ui" # Enter file here.
 qtCreatorFile2 = "phone.ui" # Enter file here.
+qtCreatorFile3 = "rule_lv2.ui" # Enter file here.
 Ui_MainWindow1, QtBaseClass1 = uic.loadUiType(qtCreatorFile1)
 Ui_MainWindow2, QtBaseClass2 = uic.loadUiType(qtCreatorFile2)
+Ui_MainWindow3, QtBaseClass3 = uic.loadUiType(qtCreatorFile3)
 
 ram_cond = ["", "{} {} {}".format("ram", constant.LESS_THAN, 5),
                 "{} {} {} {} {}".format("ram", constant.GREATER_THAN, 5, constant.LESS_THAN, 10),
@@ -30,6 +32,9 @@ price_cond = ["", "{} {} {}".format("price", constant.LESS_THAN, 10.1),
                 "{} {} {} {} {}".format("price", constant.GREATER_THAN, 10.1, constant.LESS_THAN, 20.1),
                 "{} {} {} {} {}".format("price", constant.GREATER_THAN, 20.1, constant.LESS_THAN, 30.1),
                 "{} {} {}".format("price", constant.GREATER_THAN, 30.1)]
+game_cond = ["", "{} {} {}".format("game", constant.BAD, ""),
+                "{} {} {}".format("game", constant.MEDIUM, ""),
+                "{} {} {}".format("game", constant.GOOD, "")]
 
 class Homepage(QtWidgets.QMainWindow, Ui_MainWindow1):
     def __init__(self):
@@ -38,6 +43,7 @@ class Homepage(QtWidgets.QMainWindow, Ui_MainWindow1):
         self.setupUi(self)
         self.center()
         self.result.clicked.connect(self.find)
+        self.level2.clicked.connect(self.switch_to_lv2)
         self.show()
 
     def center(self):
@@ -45,6 +51,11 @@ class Homepage(QtWidgets.QMainWindow, Ui_MainWindow1):
         centerPoint = QtWidgets.QDesktopWidget().availableGeometry().center()
         frameGm.moveCenter(centerPoint)
         self.move(frameGm.topLeft())
+
+    def switch_to_lv2(self):
+        self.main = Level2()
+        self.main.show()
+        self.close()
 
     def find(self):
         ram = self.ram.currentIndex()
@@ -76,6 +87,45 @@ class Homepage(QtWidgets.QMainWindow, Ui_MainWindow1):
             self.main = Result()
             self.main.show()
 
+class Level2(QtWidgets.QMainWindow, Ui_MainWindow3):
+    def __init__(self):
+        QtWidgets.QMainWindow.__init__(self)
+        Ui_MainWindow3.__init__(self)
+        self.setupUi(self)
+        self.center()
+        self.result.clicked.connect(self.find)
+        self.level1.clicked.connect(self.switch_to_lv1)
+        self.show()
+
+    def center(self):
+        frameGm = self.frameGeometry()
+        centerPoint = QtWidgets.QDesktopWidget().availableGeometry().center()
+        frameGm.moveCenter(centerPoint)
+        self.move(frameGm.topLeft())
+
+    def switch_to_lv1(self):
+        self.main = Homepage()
+        self.main.show()
+        self.close()
+
+    def find(self):
+        game = self.game.currentIndex()
+        student = self.student.currentIndex()
+
+        params = [game, student]
+        if params == [0, 0]:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle("Error")
+            msg.setText("Please select at least 1 category!")
+            x = msg.exec_()
+        else:
+            listCond = [game_cond[game]]
+            listCond = [condition for condition in listCond if condition != ""]
+
+            global listId
+            listId = inference_engine.runAll(listCond)
+            self.main = Result()
+            self.main.show()
 
 class Result(QtWidgets.QWidget):
     def __init__(self):
