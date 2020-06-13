@@ -1440,5 +1440,170 @@
         }
       }
     ]
+  },
+  {
+    "conditions": {
+      "all": [
+        {
+          "name": "game",
+          "operator": "bad",
+          "value": ""
+        }
+      ]
+    },
+    "actions": [
+      {
+        "name": "ram",
+        "params": {
+          "values": [
+            5
+          ]
+        },
+        "operator": "less_than"
+      },
+      {
+        "name": "screen",
+        "params": {
+          "values": [
+            5.01
+          ]
+        },
+        "operator": "less_than"
+      },
+      {
+        "name": "battery",
+        "params": {
+          "values": [
+            3005
+          ]
+        },
+        "operator": "less_than"
+      }
+    ]
+  },
+  {
+    "conditions": {
+      "all": [
+        {
+          "name": "game",
+          "operator": "medium",
+          "value": ""
+        }
+      ]
+    },
+    "actions": [
+      {
+        "name": "ram",
+        "params": {
+          "values": [
+            5,
+            10
+          ]
+        },
+        "operator": "between"
+      },
+      {
+        "name": "screen",
+        "params": {
+          "values": [
+            5.01,
+            6.51
+          ]
+        },
+        "operator": "between"
+      },
+      {
+        "name": "battery",
+        "params": {
+          "values": [
+            3005,
+            4005
+          ]
+        },
+        "operator": "between"
+      }
+    ]
+  },
+  {
+    "conditions": {
+      "all": [
+        {
+          "name": "game",
+          "operator": "good",
+          "value": ""
+        }
+      ]
+    },
+    "actions": [
+      {
+        "name": "ram",
+        "params": {
+          "values": [
+            10
+          ]
+        },
+        "operator": "greater_than"
+      },
+      {
+        "name": "screen",
+        "params": {
+          "values": [
+            6.51
+          ]
+        },
+        "operator": "greater_than"
+      },
+      {
+        "name": "battery",
+        "params": {
+          "values": [
+            4005
+          ]
+        },
+        "operator": "greater_than"
+      }
+    ]
+  },
+  {
+    "conditions": {
+      "all": [
+        {
+          "name": "student",
+          "operator": "good",
+          "value": ""
+        }
+      ]
+    },
+    "actions": [
+      {
+        "name": "ram",
+        "params": {
+          "values": [
+            5,
+            10
+          ]
+        },
+        "operator": "between"
+      },
+      {
+        "name": "price",
+        "params": {
+          "values": [
+            10.1
+          ]
+        },
+        "operator": "less_than"
+      },
+      {
+        "name": "rom",
+        "params": {
+          "values": [
+            32.1,
+            64.1
+          ]
+        },
+        "operator": "between"
+      }
+    ]
   }
 ]
