@@ -1,8 +1,6 @@
 import json
 from PIL import Image
 import constant
-import matplotlib.pyplot as plt
-import numpy as np
 from collections import deque
 # input = "{} {} {}"
 #  run(input) return listImageId. /images_1/id.jpg
@@ -44,20 +42,6 @@ def getListImage(list_id):
             if id in list_id]
 
 
-def showListImage(listImage):
-    rows = len(listImage) // 2
-    cols = len(listImage)//rows + 1
-    fig = plt.figure(figsize=(20, 10))
-    plt.axis('off')
-    plt.tick_params(axis='both', left='off', top='off', right='off', bottom='off',
-                    labelleft='off', labeltop='off', labelright='off', labelbottom='off')
-
-    for (index, id) in enumerate(listImage):
-        img = Image.open("images_1/{}.jpg".format(id))
-        index = index + 1
-        ax = fig.add_subplot(rows, cols, index)
-        plt.imshow(np.asarray(img))
-    plt.show()
 
 
 def getListConditions(rule):
